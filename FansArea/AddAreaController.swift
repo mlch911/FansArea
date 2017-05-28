@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddAreaController: UITableViewController {
+class AddAreaController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageText: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,16 +28,59 @@ class AddAreaController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        coverImageView.image = info[UIImagePickerControllerOriginalImage]as? UIImage
+        coverImageView.contentMode = .scaleAspectFill
+        coverImageView.clipsToBounds = true
+        imageText.text = ""
+        
+        dismiss(animated: true, completion: nil)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0{
+            guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                let errormenu = UIAlertController(title: "错误", message: "系统禁止访问相册。", preferredStyle: .alert)
+                self.present(errormenu, animated: true, completion: nil)
+                return
+            }
+            
+            let photomenu = UIAlertController(title: "请选择图片来源：", message: "", preferredStyle: .actionSheet)
+            let option1 = UIAlertAction(title: "相册", style: .default, handler: { (_) in
+                let photopicker = UIImagePickerController()
+                photopicker.allowsEditing = false
+                photopicker.sourceType = .photoLibrary
+                photopicker.delegate = self
+                self.present(photopicker, animated: true, completion: nil)
+            })
+            let option2 = UIAlertAction(title: "拍照", style: .default, handler: { (_) in
+                let camerapicker = UIImagePickerController()
+                camerapicker.allowsEditing = false
+                camerapicker.sourceType = .camera
+                self.present(camerapicker, animated: true, completion: nil)
+            })
+            let option3 = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            photomenu.addAction(option1)
+            photomenu.addAction(option2)
+            photomenu.addAction(option3)
+            self.present(photomenu, animated: true, completion: nil)
+        }
+        
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706116A1ED484FC00CC7427 /* ReviewViewController.swift */; };
+		F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F707B1871ED6C7D1007740CD /* MapKit.framework */; };
+		F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F707B18A1ED6D6C3007740CD /* MapViewController.swift */; };
+		F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75266481EDB46FC00907399 /* AddAreaController.swift */; };
 		F76E901A1E9413A400C95DCC /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E90191E9413A400C95DCC /* Area.swift */; };
 		F76E901D1E941D6800C95DCC /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */; };
 		F76E901F1E9420F200C95DCC /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E901E1E9420F200C95DCC /* DetailTableViewCell.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F706116A1ED484FC00CC7427 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		F707B1871ED6C7D1007740CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F707B18A1ED6D6C3007740CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F75266481EDB46FC00907399 /* AddAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAreaController.swift; sourceTree = "<group>"; };
 		F76E90191E9413A400C95DCC /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		F76E901B1E94146200C95DCC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F707B1861ED6C7D1007740CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F707B1871ED6C7D1007740CD /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F79881BF1E9380CB00FEF690 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +107,7 @@
 				F79881DF1E9380CB00FEF690 /* FansAreaTests */,
 				F79881EA1E9380CB00FEF690 /* FansAreaUITests */,
 				F79881C91E9380CB00FEF690 /* Products */,
+				F707B1861ED6C7D1007740CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,8 +128,11 @@
 				F79881CF1E9380CB00FEF690 /* Main.storyboard */,
 				F76E901B1E94146200C95DCC /* MyPlayground.playground */,
 				F79881F91E93824300FEF690 /* AreaTableViewController.swift */,
+				F75266481EDB46FC00907399 /* AddAreaController.swift */,
+				F707B18A1ED6D6C3007740CD /* MapViewController.swift */,
 				F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */,
 				F79881FB1E93904E00FEF690 /* CustomTableViewCell.swift */,
+				F706116A1ED484FC00CC7427 /* ReviewViewController.swift */,
 				F76E901E1E9420F200C95DCC /* DetailTableViewCell.swift */,
 				F76E90191E9413A400C95DCC /* Area.swift */,
 				F79881D21E9380CB00FEF690 /* Assets.xcassets */,
@@ -208,6 +229,11 @@
 					F79881C71E9380CB00FEF690 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F79881DB1E9380CB00FEF690 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -275,10 +301,13 @@
 			files = (
 				F76E901F1E9420F200C95DCC /* DetailTableViewCell.swift in Sources */,
 				F76E901A1E9413A400C95DCC /* Area.swift in Sources */,
+				F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */,
+				F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */,
 				F76E901D1E941D6800C95DCC /* DetailTableViewController.swift in Sources */,
 				F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */,
 				F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */,
 				F79881CC1E9380CB00FEF690 /* AppDelegate.swift in Sources */,
+				F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

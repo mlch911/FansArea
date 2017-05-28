@@ -10,12 +10,24 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
+    @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var DetailImage: UIImageView!
     
     var area: Area!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DetailImage.image = UIImage(named: area.image)
+        tableView.backgroundColor = UIColor(white: 0.98, alpha: 1)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = UIColor(white: 0.9, alpha: 1)
+        
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.title = area.name
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,6 +56,7 @@ class DetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
         
+        cell.backgroundColor = UIColor.clear
         // Configure the cell...
         
         switch indexPath.row {
@@ -62,9 +75,13 @@ class DetailTableViewController: UITableViewController {
         default:
             break
         }
-        tableView.deselectRow(at: indexPath, animated: true)
 
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 
@@ -103,14 +120,30 @@ class DetailTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showReview" {
+            let dest = segue.destination as! ReviewViewController
+            dest.area = self.area
+        }
+        if segue.identifier == "showMap" {
+            let dest = segue.destination as! MapViewController
+            dest.area = self.area
+        }
     }
-    */
+
+    
+    @IBAction func close(segue: UIStoryboardSegue){
+        let reviewVC = segue.source as! ReviewViewController
+        
+        if let rating = reviewVC.rating{
+            self.area.rating = rating
+            self.ratingButton.setImage(UIImage(named: rating), for: .normal)
+        }
+        
+    }
 
 }
