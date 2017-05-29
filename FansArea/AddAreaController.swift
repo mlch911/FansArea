@@ -7,11 +7,45 @@
 //
 
 import UIKit
+import CoreData
 
 class AddAreaController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var area: AreaMO!
+    var isvisited = false
+    
     @IBOutlet weak var imageText: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var provinceText: UITextField!
+    @IBOutlet weak var partText: UITextField!
+
+    @IBAction func isVisitedSwtich(_ sender: UIButton) {
+        if sender.tag == 8001{
+            isvisited = true
+            visitedText.text = "我去过！"
+        } else {
+            isvisited = false
+            visitedText.text = "我没去过。"
+        }
+    }
+    @IBAction func saveBtn(_ sender: UIBarButtonItem) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        area = AreaMO(context: appDelegate.persistentContainer.viewContext)
+        area.name = nameText.text
+        area.part = partText.text
+        area.province = provinceText.text
+        area.isvisited = isvisited
+        if let imageData = UIImageJPEGRepresentation(coverImageView.image!, 0.7){
+            area.image = NSData(data: imageData)
+        }
+        appDelegate.saveContext()
+        performSegue(withIdentifier: "unwindToHomeList", sender: self)
+    }
+    @IBOutlet weak var visitedText: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +68,12 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.clipsToBounds = true
         imageText.text = ""
+        
+//代码约束(NSLayoutConstraint)
+        let widthCons = NSLayoutConstraint(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: coverImageView.superview, attribute: .width, multiplier: 1, constant: 0)
+        let heightCons = NSLayoutConstraint(item: coverImageView, attribute: .height, relatedBy: .equal, toItem: coverImageView.superview, attribute: .height, multiplier: 1, constant: 0)
+        widthCons.isActive = true
+        heightCons.isActive = true
         
         dismiss(animated: true, completion: nil)
     }

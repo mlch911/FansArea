@@ -11,6 +11,7 @@
 		F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F707B1871ED6C7D1007740CD /* MapKit.framework */; };
 		F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F707B18A1ED6D6C3007740CD /* MapViewController.swift */; };
 		F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75266481EDB46FC00907399 /* AddAreaController.swift */; };
+		F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F752666B1EDBF87F00907399 /* FansArea.xcdatamodeld */; };
 		F76E901A1E9413A400C95DCC /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E90191E9413A400C95DCC /* Area.swift */; };
 		F76E901D1E941D6800C95DCC /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */; };
 		F76E901F1E9420F200C95DCC /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E901E1E9420F200C95DCC /* DetailTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		F707B1871ED6C7D1007740CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F707B18A1ED6D6C3007740CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F75266481EDB46FC00907399 /* AddAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAreaController.swift; sourceTree = "<group>"; };
+		F752666C1EDBF87F00907399 /* FansArea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FansArea.xcdatamodel; sourceTree = "<group>"; };
 		F76E90191E9413A400C95DCC /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		F76E901B1E94146200C95DCC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				F79881CF1E9380CB00FEF690 /* Main.storyboard */,
 				F76E901B1E94146200C95DCC /* MyPlayground.playground */,
 				F79881F91E93824300FEF690 /* AreaTableViewController.swift */,
+				F752666B1EDBF87F00907399 /* FansArea.xcdatamodeld */,
 				F75266481EDB46FC00907399 /* AddAreaController.swift */,
 				F707B18A1ED6D6C3007740CD /* MapViewController.swift */,
 				F76E901C1E941D6800C95DCC /* DetailTableViewController.swift */,
@@ -305,6 +308,7 @@
 				F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */,
 				F76E901D1E941D6800C95DCC /* DetailTableViewController.swift in Sources */,
 				F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */,
+				F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */,
 				F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */,
 				F79881CC1E9380CB00FEF690 /* AppDelegate.swift in Sources */,
 				F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */,
@@ -573,6 +577,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F752666B1EDBF87F00907399 /* FansArea.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F752666C1EDBF87F00907399 /* FansArea.xcdatamodel */,
+			);
+			currentVersion = F752666C1EDBF87F00907399 /* FansArea.xcdatamodel */;
+			path = FansArea.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F79881C01E9380CB00FEF690 /* Project object */;
 }

@@ -13,12 +13,12 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var DetailImage: UIImageView!
     
-    var area: Area!
+    var area: AreaMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DetailImage.image = UIImage(named: area.image)
+        DetailImage.image = UIImage(data: area.image as! Data)
         tableView.backgroundColor = UIColor(white: 0.98, alpha: 1)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = UIColor(white: 0.9, alpha: 1)

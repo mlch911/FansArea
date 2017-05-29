@@ -12,12 +12,12 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
-    var area: Area!
+    var area: AreaMO!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let coder = CLGeocoder()
-        coder.geocodeAddressString(area.name, completionHandler: { (ps, error) in
+        coder.geocodeAddressString(area.name!, completionHandler: { (ps, error) in
             guard ps != nil else{
                 print(error ?? "未知错误")
                 return
@@ -52,7 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         
         let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-        leftIconView.image = UIImage(named: area.image)
+        leftIconView.image = UIImage(data: area.image as! Data)
         av?.leftCalloutAccessoryView = leftIconView
 //        av?.pinTintColor = UIColor.green
         

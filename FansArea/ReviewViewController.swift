@@ -33,12 +33,12 @@ class ReviewViewController: UIViewController {
     }
     
     
-    var area: Area!
+    var area: AreaMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bgimage.image = UIImage(named: area.image)
+        bgimage.image = UIImage(data: area.image as! Data)
         let effect = UIBlurEffect(style: .light)
         let effectView = UIVisualEffectView(effect: effect)
         
