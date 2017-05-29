@@ -32,16 +32,29 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
     @IBAction func saveBtn(_ sender: UIBarButtonItem) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        area = AreaMO(context: appDelegate.persistentContainer.viewContext)
-        area.name = nameText.text
-        area.part = partText.text
-        area.province = provinceText.text
-        area.isvisited = isvisited
-        if let imageData = UIImageJPEGRepresentation(coverImageView.image!, 0.7){
-            area.image = NSData(data: imageData)
+        if nameText.text == nil || partText.text == nil || provinceText.text == nil || coverImageView.image == nil{
+            let errorAlert = UIAlertController(title: "抱歉", message: "您还未填完所有信息。", preferredStyle: .alert)
+            let option1 = UIAlertAction(title: "继续填写", style: .default, handler: nil)
+            let option2 = UIAlertAction(title: "退出", style: .cancel, handler: { (_) in
+                self.performSegue(withIdentifier: "unwindToHomeList", sender: self)
+            })
+            errorAlert.addAction(option1)
+            errorAlert.addAction(option2)
+            self.present(errorAlert, animated: true, completion: nil)
+        } else {
+            area = AreaMO(context: appDelegate.persistentContainer.viewContext)
+            area.name = nameText.text
+            area.part = partText.text
+            area.province = provinceText.text
+            area.isvisited = isvisited
+            if let imageData = UIImageJPEGRepresentation(coverImageView.image!, 0.7){
+                area.image = NSData(data: imageData)
+            }
+            area.addTime = Date() as NSDate?
+            area.isTop = 1
+            appDelegate.saveContext()
+            performSegue(withIdentifier: "unwindToHomeList", sender: self)
         }
-        appDelegate.saveContext()
-        performSegue(withIdentifier: "unwindToHomeList", sender: self)
     }
     @IBOutlet weak var visitedText: UILabel!
     

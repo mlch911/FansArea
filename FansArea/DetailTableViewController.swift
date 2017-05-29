@@ -28,6 +28,11 @@ class DetailTableViewController: UITableViewController {
         
         self.title = area.name
         
+        if let rating = area.rating{
+            self.area.rating = rating
+            self.ratingButton.setImage(UIImage(named: rating), for: .normal)
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -143,6 +148,9 @@ class DetailTableViewController: UITableViewController {
             self.area.rating = rating
             self.ratingButton.setImage(UIImage(named: rating), for: .normal)
         }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
         
     }
 

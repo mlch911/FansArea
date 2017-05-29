@@ -15,7 +15,7 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 
     ]
     
-    var fc :NSFetchedResultsController<NSFetchRequestResult>!
+    var fc :NSFetchedResultsController<AreaMO>!
     
 //    var areas = ["闵行区莘庄镇","兰州七里河区","三明市尤溪县","西宁城西区","广州白云区","闽侯县上街镇","哈尔滨市南岗区","临汾市尧都区","成都武侯区","汕头市金平区","长沙市芙蓉区"]
 //    var provinces = ["上海","甘肃","福建","青海","广东","福建","黑龙江","山西","四川","广东","湖南"]
@@ -35,6 +35,9 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        fetchAllData2()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,15 +47,62 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 //        tableView.reloadData()
     }
     
-    func fetchAllData()  {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+        default:
+            tableView.reloadData()
+        }
+        if let object = controller.fetchedObjects{
+            areas = object as! [AreaMO]
+        }
+    }
+    
+    func fetchAllData2() {
+        let request:NSFetchRequest<AreaMO> = AreaMO.fetchRequest()
+        let top = NSSortDescriptor(key: "isTop", ascending: true)
+        let sd = NSSortDescriptor(key: "addTime", ascending: true)
+        request.sortDescriptors = [top,sd]
+        
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appdelegate.persistentContainer.viewContext
+        fc = NSFetchedResultsController(fetchRequest: request , managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fc.delegate = self
         
         do {
-            areas = try appDelegate.persistentContainer.viewContext.fetch(AreaMO.fetchRequest())
+            try fc.performFetch()
+            if let object = fc.fetchedObjects{
+                areas = object
+            }
         } catch  {
             print(error)
         }
+        
     }
+    
+    
+//    func fetchAllData()  {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//        do {
+//            areas = try appDelegate.persistentContainer.viewContext.fetch(AreaMO.fetchRequest())
+//        } catch  {
+//            print(error)
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +110,11 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
     }
 
     // MARK: - Table view delegate
+    
+    func saveData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
+    }
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let menu = UIAlertController(title: "同学你好", message: "您点击了第\(indexPath.row)行", preferredStyle: .actionSheet)
@@ -99,21 +154,27 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, indexPath) in
 
-            self.areas.remove(at: indexPath.row)
+//            self.areas.remove(at: indexPath.row)
 //            self.areaImages.remove(at: indexPath.row)
 //            self.areas.remove(at: indexPath.row)
 //            self.parts.remove(at: indexPath.row)
 //            self.provinces.remove(at: indexPath.row)
 //            self.visited.remove(at: indexPath.row)
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(self.fc.object(at: indexPath))
+            appDelegate.saveContext()
+            
+            
+//            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         let topAction = UITableViewRowAction(style: .normal, title: "Top") { (_, indexPath) in
 
-            self.areas.insert(self.areas[indexPath.row], at: 0)
-            self.areas.remove(at: indexPath.row + 1)
-
+//            self.areas.insert(self.areas[indexPath.row], at: 0)
+//            self.areas.remove(at: indexPath.row + 1)
+//
 //            self.areas.insert(self.areas[indexPath.row], at: 0)
 //            self.areas.remove(at: indexPath.row + 1)
 //            
@@ -129,25 +190,42 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 //            self.visited.insert(self.visited[indexPath.row], at: 0)
 //            self.visited.remove(at: indexPath.row + 1)
             
-            tableView.reloadData()
+            
+            self.areas[indexPath.row].isTop = 0
+            self.saveData()
+//            tableView.reloadData()
+        }
+        
+        let nottopAction = UITableViewRowAction(style: .normal, title: "notTop") { (_, indexPath) in
+            self.areas[indexPath.row].isTop = 1
+            self.saveData()
+//            tableView.reloadData()
         }
         
         let visitedAction = UITableViewRowAction(style: .normal, title: "Visited") { (_, indexPath) in
             self.areas[indexPath.row].isvisited = true
-            tableView.reloadData()
+//            tableView.reloadData()
+            self.saveData()
         }
         visitedAction.backgroundColor = UIColor.brown
         
         let notvisitedAction = UITableViewRowAction(style: .normal, title: "notVisited") { (_, indexPath) in
             self.areas[indexPath.row].isvisited = false
-            tableView.reloadData()
+//            tableView.reloadData()
+            self.saveData()
         }
         notvisitedAction.backgroundColor = UIColor.brown
         
-        if self.areas[indexPath.row].isvisited {
+        if self.areas[indexPath.row].isvisited && self.areas[indexPath.row].isTop == 0 {
+            return [shareAction, deleteAction, nottopAction, notvisitedAction]
+        }
+        else if self.areas[indexPath.row].isvisited {
             return [shareAction, deleteAction, topAction, notvisitedAction]
         }
-        else {
+        else if self.areas[indexPath.row].isTop == 0 {
+            return [shareAction, deleteAction, nottopAction, visitedAction]
+        }
+        else{
             return [shareAction, deleteAction, topAction, visitedAction]
         }
     }
