@@ -9,13 +9,29 @@
 import UIKit
 import CoreData
 
-class AreaTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class AreaTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
     
     var areas :[AreaMO] = [
 
     ]
     
     var fc :NSFetchedResultsController<AreaMO>!
+    
+    var sc :UISearchController!
+    var searchResult :[AreaMO]?
+    func searchFilter(text :String) {
+        searchResult = areas.filter({ (area) -> Bool in
+            return (area.name!.localizedCaseInsensitiveContains(text))
+        })
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if var text = searchController.searchBar.text {
+            text = text.trimmingCharacters(in: .whitespaces)
+            searchFilter(text: text)
+            tableView.reloadData()
+        }
+    }
     
 //    var areas = ["闵行区莘庄镇","兰州七里河区","三明市尤溪县","西宁城西区","广州白云区","闽侯县上街镇","哈尔滨市南岗区","临汾市尧都区","成都武侯区","汕头市金平区","长沙市芙蓉区"]
 //    var provinces = ["上海","甘肃","福建","青海","广东","福建","黑龙江","山西","四川","广东","湖南"]
@@ -25,6 +41,16 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sc = UISearchController(searchResultsController: nil)
+        sc.searchResultsUpdater = self
+        tableView.tableHeaderView = sc.searchBar
+        sc.dimsBackgroundDuringPresentation = false
+//        sc.searchBar.barTintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
+//        sc.searchBar.tintColor = UIColor.white
+        sc.searchBar.searchBarStyle = .minimal
+        sc.searchBar.placeholder = "输入地区名进行搜索"
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         tableView.estimatedRowHeight = 80
@@ -241,7 +267,7 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return areas.count
+        return sc.isActive ? (searchResult?.count)! : areas.count
     }
 
     
@@ -254,14 +280,16 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
 */
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        cell.nameLabel.text = areas[indexPath.row].name
-        cell.provinceLabel.text = areas[indexPath.row].province
-        cell.partLable.text = areas[indexPath.row].part
-        cell.thumbImageView.image = UIImage(data: areas[indexPath.row].image as! Data)
+        let area = sc.isActive ? searchResult?[indexPath.row] : areas[indexPath.row]
+        
+        cell.nameLabel.text = area?.name
+        cell.provinceLabel.text = area?.province
+        cell.partLable.text = area?.part
+        cell.thumbImageView.image = UIImage(data: area?.image as! Data)
         cell.thumbImageView.layer.cornerRadius = cell.thumbImageView.frame.size.height / 4
         cell.thumbImageView.clipsToBounds = true
         
-        if areas[indexPath.row].isvisited {
+        if (area?.isvisited)! {
             cell.accessoryType = .checkmark
         }   else {
             cell.accessoryType = .none
@@ -271,13 +299,13 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return !sc.isActive
     }
-    */
+    
 
     
 //    // Override to support editing the table view.
@@ -324,7 +352,7 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
         if segue.identifier == "showAreaDetail" {
 //            let dest = segue.destination as! AreaDetailViewController
             let dest = segue.destination as! DetailTableViewController
-            dest.area = areas[tableView.indexPathForSelectedRow!.row]
+            dest.area = sc.isActive ? searchResult?[tableView.indexPathForSelectedRow!.row] : areas[tableView.indexPathForSelectedRow!.row]
         }
     }
     
