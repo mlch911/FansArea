@@ -69,6 +69,9 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if let pageVC = storyboard?.instantiateViewController(withIdentifier: "GuideView") as? GuideViewController {
+            present(pageVC, animated: true, completion: nil)
+        }
 //        fetchAllData()
 //        tableView.reloadData()
     }

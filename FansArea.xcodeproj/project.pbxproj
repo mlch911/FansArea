@@ -10,6 +10,8 @@
 		F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706116A1ED484FC00CC7427 /* ReviewViewController.swift */; };
 		F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F707B1871ED6C7D1007740CD /* MapKit.framework */; };
 		F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F707B18A1ED6D6C3007740CD /* MapViewController.swift */; };
+		F71E64BB1EDCB5E600771D85 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */; };
+		F71E64BD1EDCB72E00771D85 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */; };
 		F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75266481EDB46FC00907399 /* AddAreaController.swift */; };
 		F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F752666B1EDBF87F00907399 /* FansArea.xcdatamodeld */; };
 		F76E901A1E9413A400C95DCC /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E90191E9413A400C95DCC /* Area.swift */; };
@@ -46,6 +48,8 @@
 		F706116A1ED484FC00CC7427 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		F707B1871ED6C7D1007740CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F707B18A1ED6D6C3007740CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		F75266481EDB46FC00907399 /* AddAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAreaController.swift; sourceTree = "<group>"; };
 		F752666C1EDBF87F00907399 /* FansArea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FansArea.xcdatamodel; sourceTree = "<group>"; };
 		F76E90191E9413A400C95DCC /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 			children = (
 				F79881CB1E9380CB00FEF690 /* AppDelegate.swift */,
 				F79881CF1E9380CB00FEF690 /* Main.storyboard */,
+				F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */,
+				F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */,
 				F76E901B1E94146200C95DCC /* MyPlayground.playground */,
 				F79881F91E93824300FEF690 /* AreaTableViewController.swift */,
 				F752666B1EDBF87F00907399 /* FansArea.xcdatamodeld */,
@@ -307,9 +313,11 @@
 				F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */,
 				F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */,
 				F76E901D1E941D6800C95DCC /* DetailTableViewController.swift in Sources */,
+				F71E64BD1EDCB72E00771D85 /* GuideViewController.swift in Sources */,
 				F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */,
 				F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */,
 				F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */,
+				F71E64BB1EDCB5E600771D85 /* ContentViewController.swift in Sources */,
 				F79881CC1E9380CB00FEF690 /* AppDelegate.swift in Sources */,
 				F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */,
 			);
