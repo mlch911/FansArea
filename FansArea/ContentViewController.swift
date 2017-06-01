@@ -13,7 +13,16 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var labelHeading: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelFooter: UILabel!
+    @IBOutlet weak var pagecontrol: UIPageControl!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var btnDone: UIButton!
     
+    @IBAction func btnDoneTap(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "GuideShow")
+        dismiss(animated: true, completion: nil)
+        
+    }
     var index = 0
     var heading = ""
     var imageName = ""
@@ -21,7 +30,8 @@ class ContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pageControl.currentPage = index
+        btnDone.isHidden = (index != 2)
         labelFooter.text = footer
         labelHeading.text = heading
         imageView.image = UIImage(named: imageName)
