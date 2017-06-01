@@ -12,7 +12,7 @@ class GuideViewController: UIPageViewController, UIPageViewControllerDataSource 
 
     var headings = ["页面1","页面2","页面3"]
     var footers = ["欢迎语1","欢迎语2","欢迎语3"]
-    var images = ["pageimage1","pageimage2","pageimage3"]
+    var images = ["beginner","iOS","swift"]
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! ContentViewController).index

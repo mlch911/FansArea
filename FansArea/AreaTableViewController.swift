@@ -359,6 +359,7 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
         if segue.identifier == "showAreaDetail" {
 //            let dest = segue.destination as! AreaDetailViewController
             let dest = segue.destination as! DetailTableViewController
+//            dest.hidesBottomBarWhenPushed = true
             dest.area = sc.isActive ? searchResult?[tableView.indexPathForSelectedRow!.row] : areas[tableView.indexPathForSelectedRow!.row]
         }
     }
