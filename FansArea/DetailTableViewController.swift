@@ -12,6 +12,7 @@ class DetailTableViewController: UITableViewController {
 
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var DetailImage: UIImageView!
+
     
     var area: AreaMO!
     
@@ -32,6 +33,7 @@ class DetailTableViewController: UITableViewController {
             self.area.rating = rating
             self.ratingButton.setImage(UIImage(named: rating), for: .normal)
         }
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -138,6 +140,21 @@ class DetailTableViewController: UITableViewController {
             let dest = segue.destination as! MapViewController
             dest.area = self.area
         }
+//        if segue.identifier == "editSegue"{
+//            let dest = segue.destination as! AddAreaController
+//            dest.area = self.area
+//            dest.imageText.text = ""
+//            dest.coverImageView.image = UIImage(data: self.area.image as! Data)
+//            dest.coverImageView.contentMode = .scaleAspectFill
+//            dest.coverImageView.clipsToBounds = true
+//            dest.nameText.text = self.area.name
+//            dest.partText.text = self.area.part
+//            dest.provinceText.text = self.area.province
+//            dest.isvisited = self.area.isvisited
+//            dest.visitedText.text = self.area.isvisited ? "我去过！" : "我没去过。"
+//            dest.isEdited = true
+//            dest.dataManagementStart()
+//        }
     }
 
     

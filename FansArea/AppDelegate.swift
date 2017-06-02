@@ -17,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        导航条定制
         UINavigationBar.appearance().barTintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.white
         
+//        TabBar定制
         UITabBar.appearance().tintColor = UIColor(red: 242/255, green: 116/255, blue: 119/255, alpha: 1)
         
         if let barFont = UIFont(name: "Avenir-Light", size: 24){
@@ -63,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
+
         let container = NSPersistentContainer(name: "FansArea")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -83,6 +86,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
     
+//    lazy var managedObjectModel: NSManagedObjectModel = {
+//        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+//        let modelURL = Bundle.main.url(forResource: "AreaMO", withExtension: "momd")!
+//        return NSManagedObjectModel(contentsOf: modelURL)!
+//    }()
+    
+    
     // MARK: - Core Data Saving support
     
     func saveContext () {
@@ -99,5 +109,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-}
 
+}

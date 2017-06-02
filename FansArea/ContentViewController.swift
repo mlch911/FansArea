@@ -13,7 +13,6 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var labelHeading: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelFooter: UILabel!
-    @IBOutlet weak var pagecontrol: UIPageControl!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnDone: UIButton!
     
@@ -21,8 +20,8 @@ class ContentViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "GuideShow")
         dismiss(animated: true, completion: nil)
-        
     }
+    
     var index = 0
     var heading = ""
     var imageName = ""

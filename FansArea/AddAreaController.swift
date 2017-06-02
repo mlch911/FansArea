@@ -13,6 +13,7 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
 
     var area: AreaMO!
     var isvisited = false
+    var isEdited = false
     
     @IBOutlet weak var imageText: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -32,6 +33,7 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
     @IBAction func saveBtn(_ sender: UIBarButtonItem) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+//        判断是否填写完毕
         if nameText.text == nil || partText.text == nil || provinceText.text == nil || coverImageView.image == nil{
             let errorAlert = UIAlertController(title: "抱歉", message: "您还未填完所有信息。", preferredStyle: .alert)
             let option1 = UIAlertAction(title: "继续填写", style: .default, handler: nil)
@@ -41,7 +43,22 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
             errorAlert.addAction(option1)
             errorAlert.addAction(option2)
             self.present(errorAlert, animated: true, completion: nil)
-        } else {
+        } else if !isEdited {
+//            新建
+            area = AreaMO(context: appDelegate.persistentContainer.viewContext)
+            area.name = nameText.text
+            area.part = partText.text
+            area.province = provinceText.text
+            area.isvisited = isvisited
+            if let imageData = UIImageJPEGRepresentation(coverImageView.image!, 0.7){
+                area.image = NSData(data: imageData)
+            }
+            area.addTime = Date() as NSDate?
+            area.isTop = 1
+            appDelegate.saveContext()
+            performSegue(withIdentifier: "unwindToHomeList", sender: self)
+        } else if isEdited {
+//            修改
             area = AreaMO(context: appDelegate.persistentContainer.viewContext)
             area.name = nameText.text
             area.part = partText.text
@@ -125,6 +142,44 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+//    func dataManagementStart() {
+//        var dataArr = [AreaMO]()
+//        
+//        // 被管理对象上下文
+//        let content = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+//        
+//        // coreData 模型的路径
+//        let path = Bundle.main.path(forResource: "Area", ofType: "momd") // 注意是"momd"
+//        // 通过路径加载coreData模型(可以映射到数据库里)
+//        let model = NSManagedObjectModel.init(contentsOf: URL.init(fileURLWithPath: path!))!
+//        // 持久化存储协调器 (让模型 和 数据库发生关系)
+//        let coordinator = NSPersistentStoreCoordinator.init(managedObjectModel: model)
+//        // 数据库路径
+//        let sqlPath = NSHomeDirectory() + "/Documents/FansArea.sqlite"
+//        
+//        // 通过协调器设置数据的存储方法
+//        
+//        try! coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: URL.init(fileURLWithPath: sqlPath), options: nil)
+//        // 将协调器设置给上下文, 从此上下文就拥有了权利(增删改查)
+//        content.persistentStoreCoordinator = coordinator
+//        
+//        // 构造查询请求, 需要设置在哪个表里查询, 如果不设置查询条件, 默认查询所有
+//        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Area")
+//        do{
+//            // 执行查询请求, 并且错误处理
+//            // 查询条件
+//            let predicate = NSPredicate.init(format: "name like %@", "*\(area.name)*")
+//            // 让请求带上条件
+//            request.predicate = predicate
+//            dataArr = try content.fetch(request) as! [AreaMO]
+//        }catch{
+//            print("查询所有, 失败了")
+//        }
+//
+//    }
+    
+    
+
 //    override func numberOfSections(in tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0

@@ -55,6 +55,7 @@ class AreaTableViewController: UITableViewController, NSFetchedResultsController
         
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

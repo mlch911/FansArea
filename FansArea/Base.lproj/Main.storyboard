@@ -38,19 +38,19 @@
                                             <rect key="frame" x="88" y="8" width="318" height="63"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWr-Aa-VdE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="34.666666666666671" height="30.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="省" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsc-wg-yxv">
-                                                    <rect key="frame" x="0.0" y="30.666666666666664" width="15.333333333333329" height="18"/>
+                                                    <rect key="frame" x="0.0" y="30" width="16" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60d-OV-hcf">
-                                                    <rect key="frame" x="0.0" y="48.666666666666657" width="24.666666666666671" height="14.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="48" width="25" height="15"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -390,13 +390,13 @@
                                             <rect key="frame" x="8" y="8" width="398" height="19"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="字段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAI-vd-ggK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="19"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="值" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BC4-6k-gsI">
-                                                    <rect key="frame" x="132.66666666666669" y="0.0" width="265.33333333333337" height="19"/>
+                                                    <rect key="frame" x="133" y="0.0" width="265" height="19"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -426,6 +426,8 @@
                             <outlet property="delegate" destination="Q5d-lD-F4B" id="vdq-DQ-0Zj"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="DetailImage" destination="bn4-zc-5zb" id="b4S-xW-doi"/>
                         <outlet property="ratingButton" destination="vKX-xG-NR6" id="yqb-eN-gEx"/>
@@ -448,7 +450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kZ9-J8-TGj">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <connections>
                                     <outlet property="delegate" destination="VaT-sx-9uV" id="LLe-KE-Dne"/>
                                 </connections>

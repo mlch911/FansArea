@@ -10,6 +10,8 @@
 		F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706116A1ED484FC00CC7427 /* ReviewViewController.swift */; };
 		F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F707B1871ED6C7D1007740CD /* MapKit.framework */; };
 		F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F707B18A1ED6D6C3007740CD /* MapViewController.swift */; };
+		F70D82A01EE1457E00823E41 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70D829F1EE1457E00823E41 /* AboutTableViewController.swift */; };
+		F70D82A21EE1730F00823E41 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70D82A11EE1730F00823E41 /* WebViewController.swift */; };
 		F71E64BB1EDCB5E600771D85 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */; };
 		F71E64BD1EDCB72E00771D85 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */; };
 		F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75266481EDB46FC00907399 /* AddAreaController.swift */; };
@@ -51,6 +53,8 @@
 		F706116A1ED484FC00CC7427 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		F707B1871ED6C7D1007740CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F707B18A1ED6D6C3007740CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F70D829F1EE1457E00823E41 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		F70D82A11EE1730F00823E41 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		F75266481EDB46FC00907399 /* AddAreaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAreaController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				F7F36E081EE0949D0082F377 /* guider.storyboard */,
 				F7F36E061EE092430082F377 /* About.storyboard */,
 				F7F36E031EE092200082F377 /* Discover.storyboard */,
+				F70D829F1EE1457E00823E41 /* AboutTableViewController.swift */,
+				F70D82A11EE1730F00823E41 /* WebViewController.swift */,
 				F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */,
 				F71E64BA1EDCB5E500771D85 /* ContentViewController.swift */,
 				F76E901B1E94146200C95DCC /* MyPlayground.playground */,
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F76E901F1E9420F200C95DCC /* DetailTableViewCell.swift in Sources */,
+				F70D82A01EE1457E00823E41 /* AboutTableViewController.swift in Sources */,
 				F76E901A1E9413A400C95DCC /* Area.swift in Sources */,
 				F75266491EDB46FC00907399 /* AddAreaController.swift in Sources */,
 				F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */,
@@ -330,6 +337,7 @@
 				F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */,
 				F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */,
 				F71E64BB1EDCB5E600771D85 /* ContentViewController.swift in Sources */,
+				F70D82A21EE1730F00823E41 /* WebViewController.swift in Sources */,
 				F79881CC1E9380CB00FEF690 /* AppDelegate.swift in Sources */,
 				F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */,
 			);
