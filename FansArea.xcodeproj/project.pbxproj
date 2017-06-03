@@ -29,6 +29,7 @@
 		F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79881F91E93824300FEF690 /* AreaTableViewController.swift */; };
 		F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79881FB1E93904E00FEF690 /* CustomTableViewCell.swift */; };
 		F7E33D8B1EE3055A00F237BD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F7E33D8A1EE3055A00F237BD /* Podfile */; };
+		F7E33D901EE3590000F237BD /* DIscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E33D8F1EE3590000F237BD /* DIscoverTableViewController.swift */; };
 		F7F36E051EE092200082F377 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E031EE092200082F377 /* Discover.storyboard */; };
 		F7F36E071EE092430082F377 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E061EE092430082F377 /* About.storyboard */; };
 		F7F36E0A1EE0949D0082F377 /* guider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E081EE0949D0082F377 /* guider.storyboard */; };
@@ -83,6 +84,8 @@
 		F79881F91E93824300FEF690 /* AreaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTableViewController.swift; sourceTree = "<group>"; };
 		F79881FB1E93904E00FEF690 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = ../CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F7E33D8A1EE3055A00F237BD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		F7E33D8C1EE32F3300F237BD /* FansArea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FansArea-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7E33D8F1EE3590000F237BD /* DIscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIscoverTableViewController.swift; sourceTree = "<group>"; };
 		F7F36E041EE092200082F377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 		F7F36E061EE092430082F377 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		F7F36E091EE0949D0082F377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/guider.storyboard; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 				F79881C91E9380CB00FEF690 /* Products */,
 				F707B1861ED6C7D1007740CD /* Frameworks */,
 				81121ED5880CE1C4361A232C /* Pods */,
+				F7E33D8C1EE32F3300F237BD /* FansArea-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +168,7 @@
 				F7F36E081EE0949D0082F377 /* guider.storyboard */,
 				F7F36E061EE092430082F377 /* About.storyboard */,
 				F7F36E031EE092200082F377 /* Discover.storyboard */,
+				F7E33D8F1EE3590000F237BD /* DIscoverTableViewController.swift */,
 				F70D829F1EE1457E00823E41 /* AboutTableViewController.swift */,
 				F70D82A11EE1730F00823E41 /* WebViewController.swift */,
 				F71E64BC1EDCB72E00771D85 /* GuideViewController.swift */,
@@ -274,6 +279,7 @@
 				TargetAttributes = {
 					F79881C71E9380CB00FEF690 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -407,6 +413,7 @@
 				F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */,
 				F752666D1EDBF87F00907399 /* FansArea.xcdatamodeld in Sources */,
 				F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */,
+				F7E33D901EE3590000F237BD /* DIscoverTableViewController.swift in Sources */,
 				F71E64BB1EDCB5E600771D85 /* ContentViewController.swift in Sources */,
 				F70D82A21EE1730F00823E41 /* WebViewController.swift in Sources */,
 				F79881CC1E9380CB00FEF690 /* AppDelegate.swift in Sources */,
@@ -579,10 +586,13 @@
 			baseConfigurationReference = 6F32E6C3A2A4361D5A6C863B /* Pods-FansArea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FansArea/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.mluoc.FansArea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FansArea-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -592,10 +602,12 @@
 			baseConfigurationReference = B66D8B677F45A2025AA733FD /* Pods-FansArea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FansArea/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.mluoc.FansArea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FansArea-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

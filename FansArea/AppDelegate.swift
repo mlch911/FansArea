@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
         }
         
+        AVOSCloud.setApplicationId("VJmr29E8NwI1MzKt3OBH3bSR-gzGzoHsz", clientKey: "c56N4S8wpfxsQpkvfcWk3ko9")
+        
         return true
     }
 

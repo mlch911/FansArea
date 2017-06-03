@@ -56,6 +56,7 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
             area.addTime = Date() as NSDate?
             area.isTop = 1
             appDelegate.saveContext()
+            saveToCloud(area: area)
             performSegue(withIdentifier: "unwindToHomeList", sender: self)
         } else if isEdited {
 //            修改
@@ -75,6 +76,33 @@ class AddAreaController: UITableViewController, UIImagePickerControllerDelegate,
     }
     @IBOutlet weak var visitedText: UILabel!
     
+    
+//    云端保存
+    func saveToCloud(area:AreaMO) {
+        let cloudObject = AVObject(className: "Area")
+        cloudObject["name"] = area.name!
+        cloudObject["part"] = area.part!
+        cloudObject["province"] = area.province!
+        cloudObject["isVisited"] = area.isvisited
+        cloudObject["isTop"] = area.isTop
+        cloudObject["addTime"] = area.addTime!
+        
+//        图像缩放
+        let originalImage = UIImage(data: area.image as! Data)!
+        let factor = (originalImage.size.width > 1024) ? (1024 / originalImage.size.width) : 1
+        let scaledImage = UIImage(data: area.image as! Data, scale: factor)!
+        
+        let imageFile = AVFile(name: "\(area.name!).jpg", data: UIImageJPEGRepresentation(scaledImage, 0.7)!)
+        cloudObject["image"] = imageFile
+        
+        cloudObject.saveInBackground { (succeed, error) in
+            if succeed {
+                print("云端保存成功！")
+            } else {
+                print(error ?? "未知错误，云端保存失败！！！")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

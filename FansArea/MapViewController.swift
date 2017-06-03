@@ -29,6 +29,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             mark.subtitle = self.area.province
             
             if let loc = place?.location {
+                
                 mark.coordinate = loc.coordinate
                 self.map.showAnnotations([mark], animated: true)
                 self.map.selectAnnotation(mark, animated: true)
@@ -55,7 +56,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         leftIconView.image = UIImage(data: area.image as! Data)
         av?.leftCalloutAccessoryView = leftIconView
 //        av?.pinTintColor = UIColor.green
-        
+                
         return av
     }
 
