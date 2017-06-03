@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3AC33C28D355545B33221EA /* libPods-FansArea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 776378A3488409C85DE4D2B0 /* libPods-FansArea.a */; };
 		F706116B1ED484FC00CC7427 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F706116A1ED484FC00CC7427 /* ReviewViewController.swift */; };
 		F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F707B1871ED6C7D1007740CD /* MapKit.framework */; };
 		F707B18B1ED6D6C3007740CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F707B18A1ED6D6C3007740CD /* MapViewController.swift */; };
@@ -27,6 +28,7 @@
 		F79881EC1E9380CB00FEF690 /* FansAreaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79881EB1E9380CB00FEF690 /* FansAreaUITests.swift */; };
 		F79881FA1E93824300FEF690 /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79881F91E93824300FEF690 /* AreaTableViewController.swift */; };
 		F79881FC1E93904E00FEF690 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79881FB1E93904E00FEF690 /* CustomTableViewCell.swift */; };
+		F7E33D8B1EE3055A00F237BD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F7E33D8A1EE3055A00F237BD /* Podfile */; };
 		F7F36E051EE092200082F377 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E031EE092200082F377 /* Discover.storyboard */; };
 		F7F36E071EE092430082F377 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E061EE092430082F377 /* About.storyboard */; };
 		F7F36E0A1EE0949D0082F377 /* guider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F36E081EE0949D0082F377 /* guider.storyboard */; };
@@ -50,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F32E6C3A2A4361D5A6C863B /* Pods-FansArea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FansArea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FansArea/Pods-FansArea.debug.xcconfig"; sourceTree = "<group>"; };
+		776378A3488409C85DE4D2B0 /* libPods-FansArea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FansArea.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B66D8B677F45A2025AA733FD /* Pods-FansArea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FansArea.release.xcconfig"; path = "Pods/Target Support Files/Pods-FansArea/Pods-FansArea.release.xcconfig"; sourceTree = "<group>"; };
 		F706116A1ED484FC00CC7427 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		F707B1871ED6C7D1007740CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F707B18A1ED6D6C3007740CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 		F79881ED1E9380CB00FEF690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79881F91E93824300FEF690 /* AreaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTableViewController.swift; sourceTree = "<group>"; };
 		F79881FB1E93904E00FEF690 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = ../CustomTableViewCell.swift; sourceTree = "<group>"; };
+		F7E33D8A1EE3055A00F237BD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		F7F36E041EE092200082F377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 		F7F36E061EE092430082F377 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		F7F36E091EE0949D0082F377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/guider.storyboard; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F707B1881ED6C7D1007740CD /* MapKit.framework in Frameworks */,
+				C3AC33C28D355545B33221EA /* libPods-FansArea.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +115,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81121ED5880CE1C4361A232C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F32E6C3A2A4361D5A6C863B /* Pods-FansArea.debug.xcconfig */,
+				B66D8B677F45A2025AA733FD /* Pods-FansArea.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F707B1861ED6C7D1007740CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F707B1871ED6C7D1007740CD /* MapKit.framework */,
+				776378A3488409C85DE4D2B0 /* libPods-FansArea.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,11 +136,13 @@
 		F79881BF1E9380CB00FEF690 = {
 			isa = PBXGroup;
 			children = (
+				F7E33D8A1EE3055A00F237BD /* Podfile */,
 				F79881CA1E9380CB00FEF690 /* FansArea */,
 				F79881DF1E9380CB00FEF690 /* FansAreaTests */,
 				F79881EA1E9380CB00FEF690 /* FansAreaUITests */,
 				F79881C91E9380CB00FEF690 /* Products */,
 				F707B1861ED6C7D1007740CD /* Frameworks */,
+				81121ED5880CE1C4361A232C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,9 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F79881F01E9380CB00FEF690 /* Build configuration list for PBXNativeTarget "FansArea" */;
 			buildPhases = (
+				8D0F902302D3CC356DC8D841 /* [CP] Check Pods Manifest.lock */,
 				F79881C41E9380CB00FEF690 /* Sources */,
 				F79881C51E9380CB00FEF690 /* Frameworks */,
 				F79881C61E9380CB00FEF690 /* Resources */,
+				15ADCA0003BD46E730E4DE38 /* [CP] Embed Pods Frameworks */,
+				11477BAE12BE0004487DDF09 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +323,7 @@
 				F7F36E0A1EE0949D0082F377 /* guider.storyboard in Resources */,
 				F7F36E051EE092200082F377 /* Discover.storyboard in Resources */,
 				F79881D31E9380CB00FEF690 /* Assets.xcassets in Resources */,
+				F7E33D8B1EE3055A00F237BD /* Podfile in Resources */,
 				F79881D11E9380CB00FEF690 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +343,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11477BAE12BE0004487DDF09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FansArea/Pods-FansArea-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15ADCA0003BD46E730E4DE38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FansArea/Pods-FansArea-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D0F902302D3CC356DC8D841 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F79881C41E9380CB00FEF690 /* Sources */ = {
@@ -505,6 +576,7 @@
 		};
 		F79881F11E9380CB00FEF690 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F32E6C3A2A4361D5A6C863B /* Pods-FansArea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FansArea/Info.plist;
@@ -517,6 +589,7 @@
 		};
 		F79881F21E9380CB00FEF690 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B66D8B677F45A2025AA733FD /* Pods-FansArea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FansArea/Info.plist;
